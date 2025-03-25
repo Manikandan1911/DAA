@@ -1,0 +1,28 @@
+class Solution {
+    public int lowerBound(int[] arr, int x) {
+        int low = 0;
+        int high = arr.length;
+        
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+             if (arr[mid] >= x) {
+                high = mid;
+            } else {
+                low = mid + 1; 
+            }
+        }
+                return low;
+    }
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+                int[] arr = {1, 3, 5, 6, 8, 10};
+                int x = 7;
+                int result = solution.lowerBound(arr, x);
+                System.out.println("The lower bound of " + x + " is at index " + result + ".");
+    }
+}
+
+
+Output:
+
+The lower bound of 7 is at index 4.
